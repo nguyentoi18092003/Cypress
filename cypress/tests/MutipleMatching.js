@@ -17,7 +17,7 @@ describe('Run file MutipleMatching',function(){
 
         //Use .each: duyệt qua mảng
         cy.get("input").each((item,index)=>{
-            cy.get(item).clear().type("abta");
+            cy.get(item).clear().type("aba");
         });
         //cy.get("button[type='submit']").click();
         cy.wait(5000);
