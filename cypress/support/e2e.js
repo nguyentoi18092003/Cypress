@@ -1,20 +1,20 @@
-// ***********************************************************
-// This example support/e2e.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
-import './commands'
-
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+/**
+ * @memberOf cy
+ * @method login
+ **/
+Cypress.Commands.add('login',(username,password)=>{
+    cy.request({
+        url:'https://api.demoblaze.com/login',
+        method:'POST',
+        headers:{
+            contentType:"application/json"
+        },
+        body:{
+            username:username,password: btoa(password)
+        }
+    }).then(res=>{
+        const authToken =res.body.split('Auth_token: ')[1];
+        cy.log(authToken)
+        cy.setCookie('tokenp_',authToken)
+    })
+})
