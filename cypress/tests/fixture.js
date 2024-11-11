@@ -36,7 +36,7 @@ it('test data', () => {
 })
 
 
-describe('Login page', () => {
+describe('Login page with account ', () => {
   it('should render login form correctly', () => {
     cy.visit('https://pr-303.d3acac4y92zt3d.amplifyapp.com');
 
@@ -69,6 +69,6 @@ describe('Login page', () => {
     //Check message
     //cy.contains('div','Incorrect username or password.').should('be.visible')
 
-    
+
   }); 
 }); 
